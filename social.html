@@ -9,32 +9,42 @@
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     body {
       font-family: 'Share Tech Mono', monospace;
-      background-color: #0a0a0a;
-      color: #cce6ff;
+      background: linear-gradient(135deg, #2a1a00 0%, #4c2a00 90%);
+      color: #ffe6a1;
+      min-height: 100vh;
+      margin: 0;
+      overflow-x: hidden;
     }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 8px #fbbf24;
+        color: #fef3c7;
+      }
+      100% {
+        box-shadow: 0 0 18px #f97316, 0 0 28px #fbbf24;
+        color: #fed7aa;
+      }
+    }
+
     .header-bar {
-      background-color: #1e40af; /* blue-900 */
-      border-left: 8px solid #3b82f6; /* blue-500 */
+      background: linear-gradient(90deg, #b45309, #ea580c);
+      border-left: 8px solid #fbbf24; /* yellow-400 */
       padding: 1rem 2rem;
       margin-bottom: 2rem;
       font-size: 2.25rem;
       font-weight: 900;
-      box-shadow: 0 0 12px #3b82f6;
+      box-shadow: 0 0 14px #fbbf24;
       text-transform: uppercase;
       letter-spacing: 0.15em;
       text-align: center;
       animation: pulseGlow 3s ease-in-out infinite alternate;
       user-select: none;
-    }
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 8px #3b82f6;
-        color: #bfdbfe;
-      }
-      100% {
-        box-shadow: 0 0 18px #60a5fa, 0 0 28px #3b82f6;
-        color: #93c5fd;
-      }
+      text-shadow:
+        0 0 8px #fbbf24,
+        0 0 15px #ea580c;
+      position: relative;
+      font-family: 'Share Tech Mono', monospace;
     }
 
     main {
@@ -44,32 +54,32 @@
     }
 
     section.trial {
-      background-color: #1e293b; /* slate-800 */
+      background: linear-gradient(145deg, #5f3c00, #783f04);
       padding: 1.25rem 1.75rem;
-      border-left: 6px solid #3b82f6; /* blue-500 */
+      border-left: 6px solid #fbbf24;
       margin-bottom: 2.5rem;
       border-radius: 0.5rem;
-      box-shadow:
-        0 0 14px #3b82f6;
-      transition: box-shadow 0.3s ease;
+      box-shadow: 0 0 14px #fbbf24;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
       cursor: pointer;
       user-select: none;
+      color: #fff4d1;
+      position: relative;
     }
     section.trial:hover {
       box-shadow:
-        0 0 25px #60a5fa,
-        0 0 40px #2563eb;
-      background-color: #273549;
+        0 0 25px #f97316,
+        0 0 40px #fbbf24;
+      background-color: #783f04;
       transform: translateY(-4px);
-      transition: all 0.3s ease;
     }
 
     .trial-title {
       font-size: 1.75rem;
       font-weight: 900;
       margin-bottom: 0.35rem;
-      color: #93c5fd;
-      text-shadow: 0 0 5px #60a5fa;
+      color: #fed7aa;
+      text-shadow: 0 0 5px #fbbf24;
       user-select: text;
     }
 
@@ -77,15 +87,17 @@
       font-weight: 600;
       margin-bottom: 0.85rem;
       font-style: italic;
-      color: #bfdbfe;
+      color: #fcd34d;
       user-select: text;
+      text-shadow: 0 0 3px #f97316;
     }
 
     .trial-info p {
       margin-bottom: 0.6rem;
       line-height: 1.5;
-      color: #dbeafe;
+      color: #ffe8a1;
       user-select: text;
+      text-shadow: 0 0 2px #7c2d12;
     }
 
     .trial-images {
@@ -100,18 +112,48 @@
       max-width: 100%;
       height: auto;
       border-radius: 0.5rem;
-      box-shadow: 0 0 14px #3b82f6;
+      box-shadow: 0 0 14px #fbbf24;
       flex: 1 1 250px;
       user-select: none;
       transition: transform 0.3s ease;
     }
     .trial-images img:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px #60a5fa;
+      box-shadow: 0 0 25px #f97316;
+    }
+
+    /* Sparkles in warm colors */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fbbf24;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #fcd34d;
+      animation: sparkleFloat 5s infinite ease-in-out;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+    .sparkle.orange {
+      background: #f97316;
+      box-shadow: 0 0 20px #fb923c;
+      animation-delay: 2.5s;
+    }
+
+    @keyframes sparkleFloat {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
+      50% { opacity: 1; transform: translateY(-10px) scale(1.1);}
     }
   </style>
 </head>
 <body>
+
+  <!-- Sparkles floating on the page -->
+  <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
+  <span class="sparkle orange" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
+  <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
+  <span class="sparkle orange" style="top: 80vh; left: 30vw; animation-delay: 4.5s;"></span>
 
   <header class="header-bar">
     Social – Teamwork, Influence
@@ -130,6 +172,8 @@
         <p>At the end, only one can move on — mutual vote or backstab.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
+      <span class="sparkle orange" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
     </section>
 
     <section class="trial" tabindex="0">
@@ -139,6 +183,8 @@
         <p>Players vote to save one other group. Lowest voted group is eliminated.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle orange" style="top:18px; left:30px; animation-delay: 1s;"></span>
+      <span class="sparkle" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
     </section>
 
     <section class="trial" tabindex="0">
@@ -148,6 +194,8 @@
         <p>Highest and lowest fame both get to the next round. Middle? Eliminated.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
+      <span class="sparkle orange" style="top:40px; left:140px; animation-delay: 2s;"></span>
     </section>
   </main>
 

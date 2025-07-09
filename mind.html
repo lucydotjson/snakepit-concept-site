@@ -8,42 +8,54 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+    /* Base styling */
     body {
       font-family: 'Share Tech Mono', monospace;
-      background-color: #0a0a0a;
-      color: #d1d5db;
+      background: linear-gradient(135deg, #0a1a2a 0%, #071a3f 80%);
+      color: #a6c8ff;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
       overflow-x: hidden;
     }
 
-    /* Pulse animation for cyan glow */
-    @keyframes pulseGlow {
-      0%, 100% {
-        box-shadow: 0 0 8px #06b6d4;
-      }
-      50% {
-        box-shadow: 0 0 20px #67e8f9;
-      }
-    }
-
-    /* Floating sparkle animation */
+    /* Sparkle animation */
     @keyframes sparkleFloat {
       0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
-      50% { opacity: 1; transform: translateY(-6px) scale(1.1);}
+      50% { opacity: 1; transform: translateY(-10px) scale(1.1);}
     }
 
+    /* Header bar with blue and red gradient and glowing border */
     .header-bar {
-      background-color: #1f2937; /* slate-800 */
-      border-left: 8px solid #06b6d4; /* Tailwind cyan-500 */
+      background: linear-gradient(90deg, #1e3a8a, #b91c1c);
+      border-left: 8px solid #3b82f6; /* bright blue */
       padding: 1rem 2rem;
-      margin: 2rem auto;
+      margin-bottom: 2rem;
       font-size: 2rem;
       font-weight: 900;
-      max-width: 800px;
-      box-shadow: 0 0 8px #06b6d4;
-      animation: pulseGlow 3s infinite ease-in-out;
+      box-shadow:
+        0 0 12px #3b82f6,
+        inset 0 0 20px #ef4444;
+      position: relative;
+      color: #a6c8ff;
       user-select: none;
-      letter-spacing: 0.05em;
-      color: #67e8f9;
+      font-family: 'Share Tech Mono', monospace;
+      text-shadow:
+        0 0 8px #3b82f6,
+        0 0 15px #ef4444;
+    }
+    .header-bar::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      background: url('https://cdn-icons-png.flaticon.com/512/1086/1086933.png') no-repeat center/contain;
+      filter: drop-shadow(0 0 4px #3b82f6);
+      transform: translateY(-50%);
+      opacity: 0.3;
+      pointer-events: none;
     }
 
     main {
@@ -53,62 +65,56 @@
     }
 
     section.trial {
-      position: relative;
-      background-color: #111827; /* slate-900 */
+      background: linear-gradient(145deg, #12275f, #7f1d1d);
       padding: 1rem 1.5rem;
-      border-left: 6px solid #06b6d4;
+      border-left: 6px solid #3b82f6;
       margin-bottom: 2rem;
       border-radius: 0.5rem;
-      box-shadow: 0 0 10px #06b6d4;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow:
+        0 0 12px #ef4444;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
       user-select: none;
+      color: #dbeafe;
+      position: relative;
     }
     section.trial:hover {
-      box-shadow: 0 0 20px #67e8f9, 0 0 30px #06b6d4;
-      transform: translateY(-4px);
+      transform: scale(1.03);
+      box-shadow:
+        0 0 25px #3b82f6,
+        0 0 40px #ef4444;
     }
 
     .trial-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
-      color: #67e8f9;
-      text-shadow:
-        0 0 6px #06b6d4,
-        0 0 12px #67e8f9;
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin-bottom: 0.3rem;
+      color: #93c5fd;
+      text-shadow: 0 0 10px #3b82f6;
     }
-
     .trial-subtitle {
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
       font-style: italic;
-      color: #67e8f9; /* cyan-300 */
+      color: #fca5a5; /* light red */
     }
-
-    .trial-info p, .trial-info ul {
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-      color: #d1d5db; /* gray-300 */
+    .trial-info p {
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+      color: #dbeafe;
+      text-shadow: 0 0 3px #1e293b;
     }
-
-    .trial-info ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-
     .trial-images {
       margin-top: 1rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
-
     .trial-images img {
       max-width: 100%;
       height: auto;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 8px #06b6d4;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px #3b82f6;
       flex: 1 1 250px;
       user-select: none;
     }
@@ -116,26 +122,37 @@
     /* Sparkles inside trial cards */
     .sparkle {
       position: absolute;
-      width: 5px;
-      height: 5px;
-      background: #06b6d4;
+      width: 6px;
+      height: 6px;
+      background: #3b82f6;
       border-radius: 50%;
-      box-shadow: 0 0 10px #67e8f9;
-      animation: sparkleFloat 4s infinite ease-in-out;
+      box-shadow: 0 0 12px #93c5fd;
+      animation: sparkleFloat 5s infinite ease-in-out;
       pointer-events: none;
       opacity: 0;
+      mix-blend-mode: screen;
+    }
+    .sparkle.red {
+      background: #ef4444;
+      box-shadow: 0 0 15px #fca5a5;
+      animation-delay: 2.5s;
     }
   </style>
 </head>
-<body class="text-white">
+<body>
+
+  <!-- Sparkles floating on the page -->
+  <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
+  <span class="sparkle red" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
+  <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
+  <span class="sparkle red" style="top: 80vh; left: 30vw; animation-delay: 4.5s;"></span>
 
   <header class="header-bar">
-     Mind – Puzzles, Memory
+    Mind – Puzzles, Memory
   </header>
 
   <main>
-
-    <section class="trial" style="position:relative;">
+    <section class="trial">
       <h2 class="trial-title">"Cobra Code"</h2>
       <div class="trial-subtitle">3-player teams</div>
       <div class="trial-info">
@@ -145,11 +162,11 @@
       </div>
       <div class="trial-images"></div>
       <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
-      <span class="sparkle" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
+      <span class="sparkle red" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
       <span class="sparkle" style="top:45px; left:130px; animation-delay: 4s;"></span>
     </section>
 
-    <section class="trial" style="position:relative;">
+    <section class="trial">
       <h2 class="trial-title">"Circuit Loop"</h2>
       <div class="trial-subtitle">Solo challenge</div>
       <div class="trial-info">
@@ -158,10 +175,10 @@
       </div>
       <div class="trial-images"></div>
       <span class="sparkle" style="top:18px; left:30px; animation-delay: 1s;"></span>
-      <span class="sparkle" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
+      <span class="sparkle red" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
     </section>
 
-    <section class="trial" style="position:relative;">
+    <section class="trial">
       <h2 class="trial-title">"Mirror Maze"</h2>
       <div class="trial-subtitle">Players run a mirrored course.</div>
       <div class="trial-info">
@@ -170,9 +187,8 @@
       </div>
       <div class="trial-images"></div>
       <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
-      <span class="sparkle" style="top:40px; left:140px; animation-delay: 2s;"></span>
+      <span class="sparkle red" style="top:40px; left:140px; animation-delay: 2s;"></span>
     </section>
-
   </main>
 
 </body>

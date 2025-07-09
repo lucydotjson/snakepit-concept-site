@@ -112,39 +112,14 @@
       margin-bottom: 0.8rem;
       font-style: italic;
       color: #7ee6a5;
+      user-select: text;
     }
     .trial-info p {
       margin-bottom: 0.6rem;
       line-height: 1.5;
       color: #c8f7d4;
       text-shadow: 0 0 3px #1e422a;
-    }
-    .trial-images {
-      margin-top: 1rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .trial-images img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.75rem;
-      box-shadow: 0 0 15px #2ecc71;
-      flex: 1 1 250px;
-      user-select: none;
-    }
-
-    /* Scrollbar styling for jungle theme */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #14532d;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #2ecc71;
-      border-radius: 10px;
-      box-shadow: inset 0 0 5px #27ae60;
+      user-select: text;
     }
   </style>
 </head>
@@ -157,7 +132,7 @@
   <div class="leaf"></div>
 
   <header class="header-bar">
-     Agility – Movement, Reflexes
+    Agility – Movement, Reflexes
   </header>
 
   <main>
@@ -166,35 +141,29 @@
     </p>
 
     <section class="trial">
-      <h2 class="trial-title">"Vertigo Steps"</h2>
+      <h2 class="trial-title">Vertigo Steps</h2>
+      <div class="trial-subtitle">Solo player</div>
       <div class="trial-info">
-        <p>A vertical climb up a collapsing jungle tower.</p>
-        <p>Platforms fall out randomly. Race to the top.</p>
-      </div>
-      <div class="trial-images">
-        <!-- Add images if desired -->
+        <p>You climb a towering jungle structure with crumbling platforms.</p>
+        <p>Step quickly. Platforms fall without warning. Reach the top or fall forever.</p>
       </div>
     </section>
 
     <section class="trial">
-      <h2 class="trial-title">"Wall Vine Rush"</h2>
+      <h2 class="trial-title">Wall Vine Rush</h2>
+      <div class="trial-subtitle">Pair of players</div>
       <div class="trial-info">
-        <p>Players must scale a wall using vines that break.</p>
-        <p>Vines turn red before breaking. Players must time jumps.</p>
-      </div>
-      <div class="trial-images">
-        <!-- Add images if desired -->
+        <p>Scale a towering wall using fragile vines that snap under pressure.</p>
+        <p>Watch for the red glow—vine breaks next. Jump in perfect sync or risk a deadly fall.</p>
       </div>
     </section>
 
     <section class="trial">
-      <h2 class="trial-title">"Mag-Leap"</h2>
+      <h2 class="trial-title">Mag-Leap</h2>
+      <div class="trial-subtitle">Team of 3 players</div>
       <div class="trial-info">
-        <p>Magnetic platforms that repel/attract depending on your polarity.</p>
-        <p>Switch polarity to cross gaps, trick opponents into falling.</p>
-      </div>
-      <div class="trial-images">
-        <!-- Add images if desired -->
+        <p>Cross gaps on magnetic platforms that pull and push unpredictably.</p>
+        <p>Switch your polarity to avoid falling and outsmart your opponents.</p>
       </div>
     </section>
   </main>

@@ -8,32 +8,54 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
+    /* Base styling */
     body {
       font-family: 'Share Tech Mono', monospace;
-      background-color: #0a0a0a;
-      color: #fca5a5;
+      background: linear-gradient(135deg, #3a0a00 0%, #4f1800 80%);
+      color: #fca571;
+      min-height: 100vh;
+      margin: 0;
+      position: relative;
+      overflow-x: hidden;
     }
 
+    /* Sparkle animation */
+    @keyframes sparkleFloat {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
+      50% { opacity: 1; transform: translateY(-10px) scale(1.1);}
+    }
+
+    /* Header bar with red and orange gradient and glowing border */
     .header-bar {
-      background-color: #1f2937; /* slate-800 */
-      border-left: 8px solid #f87171; /* red-400 */
+      background: linear-gradient(90deg, #b9480f, #f97316);
+      border-left: 8px solid #fb923c; /* orange-400 */
       padding: 1rem 2rem;
-      margin: 2rem auto;
+      margin-bottom: 2rem;
       font-size: 2rem;
       font-weight: 900;
-      max-width: 800px;
-      box-shadow: 0 0 12px #f87171;
-      letter-spacing: 0.07em;
+      box-shadow:
+        0 0 12px #fb923c,
+        inset 0 0 20px #f97316;
+      position: relative;
+      color: #fb923c;
       user-select: none;
-      color: #f87171;
-      text-transform: uppercase;
+      font-family: 'Share Tech Mono', monospace;
       text-shadow:
-        0 0 6px #f87171,
-        0 0 15px #fca5a5;
-      transition: box-shadow 0.4s ease;
+        0 0 8px #fb923c,
+        0 0 15px #f97316;
     }
-    .header-bar:hover {
-      box-shadow: 0 0 20px #f87171, 0 0 30px #fca5a5;
+    .header-bar::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 4rem;
+      height: 4rem;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833314.png') no-repeat center/contain; /* muscle icon */
+      filter: drop-shadow(0 0 4px #fb923c);
+      transform: translateY(-50%);
+      opacity: 0.3;
+      pointer-events: none;
     }
 
     main {
@@ -43,78 +65,93 @@
     }
 
     section.trial {
-      background-color: #111827; /* slate-900 */
+      background: linear-gradient(145deg, #7a2c0a, #d9480f);
       padding: 1rem 1.5rem;
-      border-left: 6px solid #f87171;
+      border-left: 6px solid #fb923c;
       margin-bottom: 2rem;
-      border-radius: 0.375rem;
-      box-shadow: 0 0 10px #f87171;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
+      border-radius: 0.5rem;
+      box-shadow:
+        0 0 12px #f97316;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
       user-select: none;
+      color: #ffd9b8;
+      position: relative;
     }
     section.trial:hover {
-      box-shadow: 0 0 25px #f87171, 0 0 35px #fca5a5;
-      transform: translateY(-3px) scale(1.02);
+      transform: scale(1.03);
+      box-shadow:
+        0 0 25px #fb923c,
+        0 0 40px #f97316;
     }
 
     .trial-title {
-      font-size: 1.5rem;
-      font-weight: 800;
+      font-size: 1.75rem;
+      font-weight: 900;
       margin-bottom: 0.3rem;
-      color: #f87171;
-      text-shadow:
-        0 0 8px #f87171,
-        0 0 15px #fca5a5;
-      user-select: text;
+      color: #ffb347;
+      text-shadow: 0 0 10px #fb923c;
     }
-
     .trial-subtitle {
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.8rem;
       font-style: italic;
-      color: #fca5a5; /* red-300 */
+      color: #ffcc99;
     }
-
-    .trial-info p, .trial-info ul {
+    .trial-info p {
       margin-bottom: 0.6rem;
-      line-height: 1.4;
-      color: #fca5a5;
+      line-height: 1.5;
+      color: #ffd9b8;
+      text-shadow: 0 0 3px #5a1f00;
     }
-
-    .trial-info ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-    }
-
     .trial-images {
       margin-top: 1rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
     }
-
     .trial-images img {
       max-width: 100%;
       height: auto;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 12px #f87171;
+      border-radius: 0.75rem;
+      box-shadow: 0 0 15px #fb923c;
       flex: 1 1 250px;
       user-select: none;
     }
+
+    /* Sparkles inside trial cards */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fb923c;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #ffb347;
+      animation: sparkleFloat 5s infinite ease-in-out;
+      pointer-events: none;
+      opacity: 0;
+      mix-blend-mode: screen;
+    }
+    .sparkle.orange {
+      background: #f97316;
+      box-shadow: 0 0 15px #ffbb72;
+      animation-delay: 2.5s;
+    }
   </style>
 </head>
-<body class="text-white">
+<body>
+
+  <!-- Sparkles floating on the page -->
+  <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
+  <span class="sparkle orange" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
+  <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
+  <span class="sparkle orange" style="top: 80vh; left: 30vw; animation-delay: 4.5s;"></span>
 
   <header class="header-bar">
-     Strength – Timing, Force
+    Strength – Timing, Force
   </header>
 
   <main>
-    <p>
-      Strength trials challenge your physical power and endurance, testing timing, teamwork, and brute force to overcome tough obstacles.
-    </p>
-
     <section class="trial">
       <h2 class="trial-title">"Totem Toss"</h2>
       <div class="trial-subtitle">Teams must hurl large stone totems across a ravine using giant slingshots.</div>
@@ -123,6 +160,9 @@
         <p>Fastest team to hit 3 targets wins.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
+      <span class="sparkle orange" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
+      <span class="sparkle" style="top:45px; left:130px; animation-delay: 4s;"></span>
     </section>
 
     <section class="trial">
@@ -133,6 +173,8 @@
         <p>Must break 3 different chain locks with hammers, levers, or brute strength in a puzzle format.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle" style="top:18px; left:30px; animation-delay: 1s;"></span>
+      <span class="sparkle orange" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
     </section>
 
     <section class="trial">
@@ -142,6 +184,8 @@
         <p>Last 10 standing make it.</p>
       </div>
       <div class="trial-images"></div>
+      <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
+      <span class="sparkle orange" style="top:40px; left:140px; animation-delay: 2s;"></span>
     </section>
   </main>
 
