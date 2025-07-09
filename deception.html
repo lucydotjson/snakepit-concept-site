@@ -30,17 +30,13 @@
       margin-bottom: 2rem;
       font-size: 2rem;
       font-weight: 900;
-      box-shadow:
-        0 0 12px #e100d6,
-        inset 0 0 20px #a50086;
+      box-shadow: 0 0 12px #e100d6, inset 0 0 20px #a50086;
       position: relative;
       color: #f0c7ff;
       user-select: none;
-      font-family: 'Share Tech Mono', monospace;
-      text-shadow:
-        0 0 10px #e100d6,
-        0 0 20px #a50086;
+      text-shadow: 0 0 10px #e100d6, 0 0 20px #a50086;
     }
+
     .header-bar::before {
       content: "";
       position: absolute;
@@ -67,19 +63,17 @@
       border-left: 6px solid #e100d6;
       margin-bottom: 2rem;
       border-radius: 0.5rem;
-      box-shadow:
-        0 0 12px #e1b3f8;
+      box-shadow: 0 0 12px #e1b3f8;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
       user-select: none;
       color: #f0c7ff;
       position: relative;
     }
+
     section.trial:hover {
       transform: scale(1.03);
-      box-shadow:
-        0 0 25px #e100d6,
-        0 0 40px #a50086;
+      box-shadow: 0 0 25px #e100d6, 0 0 40px #a50086;
     }
 
     .trial-title {
@@ -89,31 +83,24 @@
       color: #e100d6;
       text-shadow: 0 0 12px #e100d6;
     }
+
     .trial-subtitle {
       font-weight: 600;
       margin-bottom: 0.8rem;
       font-style: italic;
       color: #f4b9ff;
     }
+
     .trial-info p {
       margin-bottom: 0.6rem;
       line-height: 1.5;
       color: #f0c7ff;
       text-shadow: 0 0 4px #3b0046;
     }
-    .trial-images {
-      margin-top: 1rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .trial-images img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.75rem;
-      box-shadow: 0 0 15px #e100d6;
-      flex: 1 1 250px;
-      user-select: none;
+
+    .trial-info ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
     }
 
     .sparkle {
@@ -128,6 +115,7 @@
       opacity: 0;
       mix-blend-mode: screen;
     }
+
     .sparkle.purple {
       background: #a50086;
       box-shadow: 0 0 15px #e100d6;
@@ -137,6 +125,7 @@
 </head>
 <body>
 
+  <!-- Sparkles -->
   <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
   <span class="sparkle purple" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
   <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
@@ -149,36 +138,37 @@
   <main>
     <section class="trial">
       <h2 class="trial-title">"Impostor Coil"</h2>
+      <div class="trial-subtitle">Hidden roles</div>
       <div class="trial-info">
         <p>One-third of players are secretly AI-controlled bots.</p>
         <p>Real players must guess who’s fake and vote them out.</p>
-        <p>Guess wrong, and you get eliminated instead.</p>
+        <p>Guess wrong, and you're out instead.</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
-      <span class="sparkle purple" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
-      <span class="sparkle" style="top:45px; left:130px; animation-delay: 4s;"></span>
+      <span class="sparkle" style="top:12px; left:40px;"></span>
+      <span class="sparkle purple" style="top:70px; left:180px;"></span>
     </section>
 
     <section class="trial">
       <h2 class="trial-title">"Whispers in the Dark"</h2>
+      <div class="trial-subtitle">Social deduction</div>
       <div class="trial-info">
-        <p>In pitch black, each player hears different audio clues.</p>
-        <p>Must decide who is lying about what they heard to sabotage the others.</p>
+        <p>In complete darkness, players hear conflicting audio clues.</p>
+        <p>They must bluff or deduce the truth, who’s misleading the team?</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:18px; left:30px; animation-delay: 1s;"></span>
-      <span class="sparkle purple" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
+      <span class="sparkle" style="top:18px; left:30px;"></span>
+      <span class="sparkle purple" style="top:60px; left:160px;"></span>
     </section>
 
     <section class="trial">
       <h2 class="trial-title">"Lie Detector"</h2>
+      <div class="trial-subtitle">Bluff and guess</div>
       <div class="trial-info">
-        <p>Players answer lore or trivia questions.</p>
-        <p>Others guess if they’re lying.</p>
-        <p>Too many wrong guesses or lies = elimination.</p>
+        <p>Players answer questions about lore, history, or events.</p>
+        <p>Others vote if they believe the answer is real or a bluff.</p>
+        <p>Too many lies or bad guesses? Elimination awaits.</p>
       </div>
-      <div class="trial-images"></div>
+      <span class="sparkle" style="top:10px; left:20px;"></span>
+      <span class="sparkle purple" style="top:40px; left:140px;"></span>
     </section>
   </main>
 
