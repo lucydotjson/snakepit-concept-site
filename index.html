@@ -3,150 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trial Category - Mind</title>
+  <title>SNAKEPIT: Multiplayer Survival Game</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-    body {
-      font-family: 'Share Tech Mono', monospace;
-      background-color: #000;
-      color: #ccc;
-      overflow-x: hidden;
-      padding: 2rem 1rem;
+    body { padding-top: 4rem; }
+    .glitch {
+      animation: glitch 1.2s infinite, pulseGlow 3s infinite;
+      color: #00ff99;
+      text-shadow: 0 0 5px #00ff99, 0 0 10px #00ffaa, 0 0 15px #00ff99;
     }
-
-    /* Glitch animation */
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 0 #ff004c, -2px 0 #00fff7;
-      }
-      20% {
-        text-shadow: -2px 0 #ff004c, 2px 0 #00fff7;
-      }
-      40% {
-        text-shadow: 2px 0 #00fff7, -2px 0 #ff004c;
-      }
-      60% {
-        text-shadow: -2px 0 #00fff7, 2px 0 #ff004c;
-      }
-      80%, 100% {
-        text-shadow: 2px 0 #ff004c, -2px 0 #00fff7;
-      }
-    }
-
-    /* Neon glow */
-    .glow {
-      color: #00fff7;
-      text-shadow:
-        0 0 5px #00fff7,
-        0 0 10px #00fff7,
-        0 0 20px #00fff7,
-        0 0 40px #ff004c;
-      animation: glitch 2s infinite;
-      user-select: none;
-    }
-
-    header {
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #ff004c;
-      border-left: 8px solid #00fff7;
-      padding-left: 1rem;
-      text-transform: uppercase;
-      text-shadow: 0 0 12px #00fff7;
-      user-select: none;
-    }
-
-    main {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    section.trial {
-      background: #111111;
-      border-left: 6px solid #00fff7;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2.5rem;
-      border-radius: 8px;
-      box-shadow:
-        0 0 10px #00fff7,
-        inset 0 0 6px #00fff7;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      cursor: default;
-      user-select: none;
-    }
-
-    section.trial:hover {
-      box-shadow:
-        0 0 25px #ff004c,
-        0 0 40px #00fff7,
-        inset 0 0 20px #ff004c;
-      transform: translateY(-5px);
-    }
-
-    h2.trial-title {
-      font-size: 1.8rem;
+    .neon-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
       font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: #ff004c;
-      text-shadow:
-        0 0 8px #ff004c,
-        0 0 15px #ff004c;
-      user-select: none;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.25rem;
+      color: #00ffaa;
+      border: 3px solid #00ffaa;
+      border-radius: 1.5rem;
+      background: transparent;
+      cursor: pointer;
+      filter: drop-shadow(0 0 6px #00ffaa);
+      transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
     }
-
-    .subtitle {
-      font-weight: 600;
-      color: #00fff7;
-      margin-bottom: 1rem;
-      font-style: italic;
-      user-select: none;
-    }
-
-    p {
-      margin-bottom: 0.8rem;
-      line-height: 1.5;
-      color: #ccc;
-      user-select: text;
+    .neon-btn:hover {
+      color: #00ffc9;
+      border-color: #00ffc9;
+      filter: drop-shadow(0 0 15px #00ffc9);
+      transform: translateY(-4px);
     }
   </style>
 </head>
+
 <body>
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 w-full bg-black bg-opacity-90 text-green-300 text-sm md:text-base z-50 px-4 py-3 flex justify-between items-center shadow-lg">
+    <a href="#" class="glitch font-bold text-xl">SNAKEPIT</a>
+    <div class="space-x-4 hidden md:block">
+      <a href="#trials" class="hover:text-green-400">Trials</a>
+      <a href="#cards" class="hover:text-green-400">Cards</a>
+      <a href="#rewards" class="hover:text-green-400">Rewards</a>
+    </div>
+  </nav>
 
-  <header class="glow">
-    Mind Trials — Survive or Lose Everything
-  </header>
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-b from-black to-gray-900 relative">
+    <h1 class="text-5xl md:text-6xl font-bold glitch">SNAKEPIT</h1>
+    <p class="mt-4 text-xl md:text-2xl text-gray-300">Multiplayer Survival Party Game</p>
+    <p class="mt-2 text-sm text-gray-400 italic">"Survive the jungle. Outsmart the bots. Don’t trust anyone."</p>
+  </section>
 
-  <main>
+  <!-- Game Overview -->
+  <section class="px-4 py-8 max-w-4xl mx-auto text-gray-300">
+    <div class="grid grid-cols-2 gap-4 text-sm md:text-base">
+      <div><strong>Genre:</strong> Survival / Party Elimination</div>
+      <div><strong>Players:</strong> 30 per match</div>
+      <div><strong>Platform:</strong> PC + console (maybe)</div>
+      <div><strong>Rating:</strong> Teen (13+)</div>
+    </div>
+    <p class="mt-6 text-lg text-white">
+      You and 29 others have been abducted by a masked lunatic known only as <span class="glitch font-bold">King Cobra</span> and dropped into a jungle dome called <span class="glitch font-bold">Serpent Isle</span>.
+      Your only chance to survive? Win his game.
+    </p>
+    <p class="mt-4 text-base text-gray-400">
+      Over 6 randomized Trials each from a different category,you’ll earn <strong>Fame</strong>, <strong>XP</strong>, and <strong>Cash</strong>. Then, if you’re among the final 8, you’ll enter <span class="glitch font-bold">The Snakepit</span>: a brutal, shifting death arena where only one escapes.
+    </p>
+  </section>
 
-    <section class="trial">
-      <h2 class="trial-title">The Code of Silence</h2>
-      <div class="subtitle">Team of 3 players</div>
-      <p>You wake up locked in separate cells. Each holds part of a code.</p>
-      <p>Use only light signals to share your clues and unlock the door.</p>
-      <p>One mistake and you’ll feel the shock. Fail, and it’s over.</p>
-    </section>
+  <!-- Lore / Setting -->
+<section class="px-4 py-10 bg-black text-gray-300">
+  <h2 class="text-3xl glitch font-bold mb-4">Serpent Isle</h2>
+  <p class="mb-4">
+    You wake up beneath neon jungle canopies and flickering skies. This is <strong>Serpent Isle</strong>  part digital jungle, part twisted game show set. The air hums. The trees sway like they’re watching.
+  </p>
+  <p class="mb-4">
+    Everything here is designed to test you: walls move when you’re not looking, paths reset behind you, and the ground glitches like corrupted code. One second it feels like paradise  the next, a trap.
+  </p>
+  <p class="mb-4">
+    Watching over it all are <strong>The Coilbots</strong>: snake-suited mascots with glowing eyes and off-script behavior. They wave. They giggle. They record your every move.
+  </p>
+  <p>
+    No one escapes the Isle without surviving <em>the Trials</em>. And even then… freedom isn't promised.
+  </p>
+</section>
 
-    <section class="trial">
-      <h2 class="trial-title">Circuit of Death</h2>
-      <div class="subtitle">Solo player</div>
-      <p>You enter a room filled with switches connected to deadly circuits.</p>
-      <p>Activate them in the right order to escape.</p>
-      <p>A wrong move resets progress — and brings pain.</p>
-    </section>
 
-    <section class="trial">
-      <h2 class="trial-title">Reflections of Terror</h2>
-      <div class="subtitle">Pair of players</div>
-      <p>One sees the path ahead, the other can’t see a thing.</p>
-      <p>The guide must talk the blind player through the maze.</p>
-      <p>One wrong step ends it all.</p>
-    </section>
+  <!-- Trial Categories -->
+  <section id="trials" class="px-4 py-10 bg-gray-900">
+    <h2 class="text-3xl font-bold glitch mb-6">Trial Categories</h2>
+    <p class="text-gray-400 mb-4 text-sm">Each match pulls one randomized trial from each category:</p>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm text-gray-300">
+      <a href="mind.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card"> Mind</a>
+      <a href="strength.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card">Strength</a>
+      <a href="agility.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card"> Agility</a>
+      <a href="deception.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card"> Deception</a>
+      <a href="social.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card"> Social</a>
+      <a href="chaos.html" class="hover:bg-black p-4 border border-green-600 rounded-lg trial-card"> Chaos</a>
+    </div>
+  </section>
 
-  </main>
+  <!-- Snakebite Cards -->
+  <section id="cards" class="px-4 py-10 bg-black text-gray-300">
+    <h2 class="text-3xl glitch font-bold mb-6">Snakebite Cards</h2>
+    <p class="mb-4">Earn or buy one-use powers to survive another round. Used in split-second decisions.</p>
+    <div class="grid md:grid-cols-3 gap-6 text-sm">
+      <div class="border border-green-600 p-4 rounded-lg"> <strong>Venom Blink:</strong> Dash forward instantly.</div>
+      <div class="border border-green-600 p-4 rounded-lg"> <strong>Rattle Jammer:</strong> Stun nearby foes for 2s.</div>
+      <div class="border border-green-600 p-4 rounded-lg"> <strong>Coil Swap:</strong> Switch places with a random opponent.</div>
+    </div>
+  </section>
 
+  <!-- Rewards Section -->
+  <section id="rewards" class="px-4 py-10 bg-gray-900 text-gray-300">
+    <h2 class="text-3xl glitch font-bold mb-6">Progression & Rewards</h2>
+    <div class="grid md:grid-cols-3 gap-6 text-sm">
+      <div><strong>XP:</strong> Level up, unlock backgrounds, animations, titles.</div>
+      <div><strong>Cash:</strong> Buy cosmetics, effects, emotes in the shop.</div>
+      <div><strong>Fame:</strong> Earn reputation. Unlock the Season Pass. Influence leaderboards.</div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="text-center my-16 px-4">
+    <a href="https://store.steampowered.com/app/yourgameid" target="_blank" class="neon-btn">🕹️ Wishlist on Steam</a>
+    <div class="mt-4">
+      <button class="neon-btn" onclick="navigator.share({ title: 'SNAKEPIT', text: 'Check out this insane survival game!', url: window.location.href })">🔗 Share This</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-xs text-gray-500 py-6 bg-black">
+    © 2025 SALSASAUS PRODUCTIONS.
+  </footer>
 </body>
 </html>
