@@ -11,19 +11,39 @@
     body {
       font-family: 'Share Tech Mono', monospace;
       background-color: #0a0a0a;
+      color: #d1d5db;
+      overflow-x: hidden;
+    }
+
+    /* Pulse animation for cyan glow */
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 8px #06b6d4;
+      }
+      50% {
+        box-shadow: 0 0 20px #67e8f9;
+      }
+    }
+
+    /* Floating sparkle animation */
+    @keyframes sparkleFloat {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
+      50% { opacity: 1; transform: translateY(-6px) scale(1.1);}
     }
 
     .header-bar {
       background-color: #1f2937; /* slate-800 */
       border-left: 8px solid #06b6d4; /* Tailwind cyan-500 */
       padding: 1rem 2rem;
-      margin-bottom: 2rem;
+      margin: 2rem auto;
       font-size: 2rem;
-      font-weight: bold;
-      box-shadow: 0 0 8px #06b6d4;
+      font-weight: 900;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      box-shadow: 0 0 8px #06b6d4;
+      animation: pulseGlow 3s infinite ease-in-out;
+      user-select: none;
+      letter-spacing: 0.05em;
+      color: #67e8f9;
     }
 
     main {
@@ -33,18 +53,30 @@
     }
 
     section.trial {
+      position: relative;
       background-color: #111827; /* slate-900 */
       padding: 1rem 1.5rem;
       border-left: 6px solid #06b6d4;
       margin-bottom: 2rem;
       border-radius: 0.5rem;
       box-shadow: 0 0 10px #06b6d4;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+    section.trial:hover {
+      box-shadow: 0 0 20px #67e8f9, 0 0 30px #06b6d4;
+      transform: translateY(-4px);
     }
 
     .trial-title {
       font-size: 1.5rem;
       font-weight: 700;
       margin-bottom: 0.25rem;
+      color: #67e8f9;
+      text-shadow:
+        0 0 6px #06b6d4,
+        0 0 12px #67e8f9;
     }
 
     .trial-subtitle {
@@ -54,10 +86,15 @@
       color: #67e8f9; /* cyan-300 */
     }
 
-    .trial-info p {
+    .trial-info p, .trial-info ul {
       margin-bottom: 0.5rem;
       line-height: 1.4;
       color: #d1d5db; /* gray-300 */
+    }
+
+    .trial-info ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
     }
 
     .trial-images {
@@ -73,6 +110,20 @@
       border-radius: 0.5rem;
       box-shadow: 0 0 8px #06b6d4;
       flex: 1 1 250px;
+      user-select: none;
+    }
+
+    /* Sparkles inside trial cards */
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: #06b6d4;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #67e8f9;
+      animation: sparkleFloat 4s infinite ease-in-out;
+      pointer-events: none;
+      opacity: 0;
     }
   </style>
 </head>
@@ -84,7 +135,7 @@
 
   <main>
 
-    <section class="trial">
+    <section class="trial" style="position:relative;">
       <h2 class="trial-title">"Cobra Code"</h2>
       <div class="trial-subtitle">3-player teams</div>
       <div class="trial-info">
@@ -92,30 +143,34 @@
         <p>One sees the code, one operates the locks, one relays.</p>
         <p>Communication is key. Mistakes cause time loss.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
+      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
+      <span class="sparkle" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
+      <span class="sparkle" style="top:45px; left:130px; animation-delay: 4s;"></span>
     </section>
 
-    <section class="trial">
+    <section class="trial" style="position:relative;">
       <h2 class="trial-title">"Circuit Loop"</h2>
       <div class="trial-subtitle">Solo challenge</div>
       <div class="trial-info">
         <p>Activate energy nodes in the correct sequence.</p>
         <p>Wrong order resets progress. Nearby players can interrupt.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
+      <span class="sparkle" style="top:18px; left:30px; animation-delay: 1s;"></span>
+      <span class="sparkle" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
     </section>
 
-    <section class="trial">
+    <section class="trial" style="position:relative;">
       <h2 class="trial-title">"Mirror Maze"</h2>
       <div class="trial-subtitle">Players run a mirrored course.</div>
       <div class="trial-info">
         <p>One side can see obstacles, the other is blind.</p>
         <p>Must talk to a partner to escape.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
+      <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
+      <span class="sparkle" style="top:40px; left:140px; animation-delay: 2s;"></span>
     </section>
 
   </main>

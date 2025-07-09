@@ -10,63 +10,111 @@
     body {
       font-family: 'Share Tech Mono', monospace;
       background-color: #0a0a0a;
+      color: #cce6ff;
     }
     .header-bar {
-      background-color: #1f2937;
-      border-left: 8px solid #60a5fa; /* Tailwind blue-400 */
+      background-color: #1e40af; /* blue-900 */
+      border-left: 8px solid #3b82f6; /* blue-500 */
       padding: 1rem 2rem;
       margin-bottom: 2rem;
-      font-size: 2rem;
-      font-weight: bold;
-      box-shadow: 0 0 8px #60a5fa;
+      font-size: 2.25rem;
+      font-weight: 900;
+      box-shadow: 0 0 12px #3b82f6;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: center;
+      animation: pulseGlow 3s ease-in-out infinite alternate;
+      user-select: none;
     }
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 8px #3b82f6;
+        color: #bfdbfe;
+      }
+      100% {
+        box-shadow: 0 0 18px #60a5fa, 0 0 28px #3b82f6;
+        color: #93c5fd;
+      }
+    }
+
     main {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1rem 3rem;
     }
+
     section.trial {
-      background-color: #111827;
-      padding: 1rem 1.5rem;
-      border-left: 6px solid #60a5fa;
-      margin-bottom: 2rem;
-      border-radius: 0.25rem;
-      box-shadow: 0 0 8px #60a5fa;
+      background-color: #1e293b; /* slate-800 */
+      padding: 1.25rem 1.75rem;
+      border-left: 6px solid #3b82f6; /* blue-500 */
+      margin-bottom: 2.5rem;
+      border-radius: 0.5rem;
+      box-shadow:
+        0 0 14px #3b82f6;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      user-select: none;
     }
+    section.trial:hover {
+      box-shadow:
+        0 0 25px #60a5fa,
+        0 0 40px #2563eb;
+      background-color: #273549;
+      transform: translateY(-4px);
+      transition: all 0.3s ease;
+    }
+
     .trial-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.25rem;
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin-bottom: 0.35rem;
+      color: #93c5fd;
+      text-shadow: 0 0 5px #60a5fa;
+      user-select: text;
     }
+
     .trial-subtitle {
-      font-weight: 500;
-      margin-bottom: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
       font-style: italic;
-      color: #93c5fd; /* blue-300 */
+      color: #bfdbfe;
+      user-select: text;
     }
+
     .trial-info p {
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+      color: #dbeafe;
+      user-select: text;
     }
+
     .trial-images {
-      margin-top: 1rem;
+      margin-top: 1.25rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      user-select: none;
     }
+
     .trial-images img {
       max-width: 100%;
       height: auto;
       border-radius: 0.5rem;
-      box-shadow: 0 0 10px #60a5fa;
+      box-shadow: 0 0 14px #3b82f6;
       flex: 1 1 250px;
+      user-select: none;
+      transition: transform 0.3s ease;
+    }
+    .trial-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #60a5fa;
     }
   </style>
 </head>
-<body class="text-white">
+<body>
 
   <header class="header-bar">
-     Social – Teamwork, Influence
+    Social – Teamwork, Influence
   </header>
 
   <main>
@@ -74,35 +122,32 @@
       Social trials demand communication, cooperation, and strategy — but only one moves forward.
     </p>
 
-    <section class="trial">
+    <section class="trial" tabindex="0">
       <h2 class="trial-title">"Linked Fates"</h2>
       <div class="trial-info">
         <p>Players are tethered in pairs.</p>
         <p>Complete a platforming course together.</p>
         <p>At the end, only one can move on — mutual vote or backstab.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
     </section>
 
-    <section class="trial">
+    <section class="trial" tabindex="0">
       <h2 class="trial-title">"Vote to Save"</h2>
       <div class="trial-info">
         <p>Four groups compete in parallel puzzles.</p>
         <p>Players vote to save one other group. Lowest voted group is eliminated.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
     </section>
 
-    <section class="trial">
+    <section class="trial" tabindex="0">
       <h2 class="trial-title">"Fame or Shame"</h2>
       <div class="trial-info">
         <p>Players vote on MVPs of a task.</p>
         <p>Highest and lowest fame both get to the next round. Middle? Eliminated.</p>
       </div>
-      <div class="trial-images">
-      </div>
+      <div class="trial-images"></div>
     </section>
   </main>
 
