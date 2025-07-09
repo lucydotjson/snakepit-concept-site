@@ -7,44 +7,34 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
     body {
       font-family: 'Share Tech Mono', monospace;
       background: linear-gradient(135deg, #2a1a00 0%, #4c2a00 90%);
       color: #ffe6a1;
       min-height: 100vh;
       margin: 0;
+      position: relative;
       overflow-x: hidden;
     }
 
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 8px #fbbf24;
-        color: #fef3c7;
-      }
-      100% {
-        box-shadow: 0 0 18px #f97316, 0 0 28px #fbbf24;
-        color: #fed7aa;
-      }
+    @keyframes sparkleFloat {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8); }
+      50% { opacity: 1; transform: translateY(-10px) scale(1.1); }
     }
 
     .header-bar {
       background: linear-gradient(90deg, #b45309, #ea580c);
-      border-left: 8px solid #fbbf24; /* yellow-400 */
+      border-left: 8px solid #fbbf24;
       padding: 1rem 2rem;
       margin-bottom: 2rem;
-      font-size: 2.25rem;
+      font-size: 2rem;
       font-weight: 900;
-      box-shadow: 0 0 14px #fbbf24;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      text-align: center;
-      animation: pulseGlow 3s ease-in-out infinite alternate;
-      user-select: none;
-      text-shadow:
-        0 0 8px #fbbf24,
-        0 0 15px #ea580c;
+      box-shadow: 0 0 15px #fbbf24, inset 0 0 20px #ea580c;
+      color: #fff7d6;
+      text-shadow: 0 0 10px #f97316, 0 0 20px #fbbf24;
       position: relative;
-      font-family: 'Share Tech Mono', monospace;
+      user-select: none;
     }
 
     main {
@@ -55,147 +45,113 @@
 
     section.trial {
       background: linear-gradient(145deg, #5f3c00, #783f04);
-      padding: 1.25rem 1.75rem;
+      padding: 1rem 1.5rem;
       border-left: 6px solid #fbbf24;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       border-radius: 0.5rem;
-      box-shadow: 0 0 14px #fbbf24;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      cursor: pointer;
+      box-shadow: 0 0 12px #fbbf24;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
       user-select: none;
       color: #fff4d1;
       position: relative;
     }
+
     section.trial:hover {
-      box-shadow:
-        0 0 25px #f97316,
-        0 0 40px #fbbf24;
-      background-color: #783f04;
-      transform: translateY(-4px);
+      transform: scale(1.03);
+      box-shadow: 0 0 25px #f97316, 0 0 40px #fbbf24;
     }
 
     .trial-title {
       font-size: 1.75rem;
       font-weight: 900;
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.3rem;
       color: #fed7aa;
-      text-shadow: 0 0 5px #fbbf24;
-      user-select: text;
+      text-shadow: 0 0 10px #fbbf24;
     }
 
     .trial-subtitle {
       font-weight: 600;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
       font-style: italic;
       color: #fcd34d;
-      user-select: text;
-      text-shadow: 0 0 3px #f97316;
     }
 
     .trial-info p {
       margin-bottom: 0.6rem;
       line-height: 1.5;
       color: #ffe8a1;
-      user-select: text;
-      text-shadow: 0 0 2px #7c2d12;
+      text-shadow: 0 0 3px #7c2d12;
     }
 
-    .trial-images {
-      margin-top: 1.25rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      user-select: none;
+    .trial-info ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
     }
 
-    .trial-images img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 14px #fbbf24;
-      flex: 1 1 250px;
-      user-select: none;
-      transition: transform 0.3s ease;
-    }
-    .trial-images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #f97316;
-    }
-
-    /* Sparkles in warm colors */
     .sparkle {
       position: absolute;
       width: 6px;
       height: 6px;
       background: #fbbf24;
       border-radius: 50%;
-      box-shadow: 0 0 15px #fcd34d;
+      box-shadow: 0 0 12px #fde68a;
       animation: sparkleFloat 5s infinite ease-in-out;
       pointer-events: none;
       opacity: 0;
       mix-blend-mode: screen;
     }
+
     .sparkle.orange {
       background: #f97316;
-      box-shadow: 0 0 20px #fb923c;
-      animation-delay: 2.5s;
-    }
-
-    @keyframes sparkleFloat {
-      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
-      50% { opacity: 1; transform: translateY(-10px) scale(1.1);}
+      box-shadow: 0 0 15px #fb923c;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sparkles floating on the page -->
-  <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
-  <span class="sparkle orange" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
-  <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
-  <span class="sparkle orange" style="top: 80vh; left: 30vw; animation-delay: 4.5s;"></span>
+  <!-- Sparkles -->
+  <span class="sparkle" style="top: 20vh; left: 30vw; animation-delay: 0s;"></span>
+  <span class="sparkle orange" style="top: 40vh; left: 65vw; animation-delay: 2s;"></span>
+  <span class="sparkle" style="top: 60vh; left: 45vw; animation-delay: 4s;"></span>
+  <span class="sparkle orange" style="top: 80vh; left: 25vw; animation-delay: 3s;"></span>
 
   <header class="header-bar">
     Social – Teamwork, Influence
   </header>
 
   <main>
-    <p>
-      Social trials demand communication, cooperation, and strategy — but only one moves forward.
-    </p>
-
-    <section class="trial" tabindex="0">
+    <section class="trial">
       <h2 class="trial-title">"Linked Fates"</h2>
+      <div class="trial-subtitle">Duo challenge</div>
       <div class="trial-info">
-        <p>Players are tethered in pairs.</p>
-        <p>Complete a platforming course together.</p>
-        <p>At the end, only one can move on — mutual vote or backstab.</p>
+        <p>Players are tethered in pairs and must complete a cooperative obstacle course.</p>
+        <p>When they reach the end, they must vote — only one can move on.</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
-      <span class="sparkle orange" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
+      <span class="sparkle" style="top:12px; left:40px;"></span>
+      <span class="sparkle orange" style="top:70px; left:180px;"></span>
     </section>
 
-    <section class="trial" tabindex="0">
+    <section class="trial">
       <h2 class="trial-title">"Vote to Save"</h2>
+      <div class="trial-subtitle">Group strategy</div>
       <div class="trial-info">
-        <p>Four groups compete in parallel puzzles.</p>
-        <p>Players vote to save one other group. Lowest voted group is eliminated.</p>
+        <p>Four groups solve puzzles in parallel.</p>
+        <p>Afterward, all players vote to save one group. The least voted group is eliminated.</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle orange" style="top:18px; left:30px; animation-delay: 1s;"></span>
-      <span class="sparkle" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
+      <span class="sparkle" style="top:18px; left:30px;"></span>
+      <span class="sparkle orange" style="top:60px; left:160px;"></span>
     </section>
 
-    <section class="trial" tabindex="0">
+    <section class="trial">
       <h2 class="trial-title">"Fame or Shame"</h2>
+      <div class="trial-subtitle">Individual influence</div>
       <div class="trial-info">
-        <p>Players vote on MVPs of a task.</p>
-        <p>Highest and lowest fame both get to the next round. Middle? Eliminated.</p>
+        <p>Players rate each other after completing a task.</p>
+        <p>The most and least voted players move forward. Everyone else is eliminated.</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
-      <span class="sparkle orange" style="top:40px; left:140px; animation-delay: 2s;"></span>
+      <span class="sparkle" style="top:10px; left:20px;"></span>
+      <span class="sparkle orange" style="top:40px; left:140px;"></span>
     </section>
   </main>
 

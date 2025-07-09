@@ -3,59 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trial Category - Mind</title>
+  <title>Trial Category - Chaos</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-    /* Base styling */
     body {
       font-family: 'Share Tech Mono', monospace;
-      background: linear-gradient(135deg, #0a1a2a 0%, #071a3f 80%);
-      color: #a6c8ff;
+      background: linear-gradient(135deg, #1e0a1a, #3d0b0b);
+      color: #fbbf24;
       min-height: 100vh;
       margin: 0;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Sparkle animation */
     @keyframes sparkleFloat {
-      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8);}
-      50% { opacity: 1; transform: translateY(-10px) scale(1.1);}
+      0%, 100% { opacity: 0; transform: translateY(0) scale(0.8); }
+      50% { opacity: 1; transform: translateY(-10px) scale(1.1); }
     }
 
-    /* Header bar with blue and red gradient and glowing border */
     .header-bar {
-      background: linear-gradient(90deg, #1e3a8a, #b91c1c);
-      border-left: 8px solid #3b82f6; /* bright blue */
+      background: linear-gradient(90deg, #f59e0b, #db2777);
+      border-left: 8px solid #f43f5e;
       padding: 1rem 2rem;
       margin-bottom: 2rem;
       font-size: 2rem;
       font-weight: 900;
-      box-shadow:
-        0 0 12px #3b82f6,
-        inset 0 0 20px #ef4444;
+      box-shadow: 0 0 15px #f59e0b, inset 0 0 20px #db2777;
+      color: #ffe4e6;
+      text-shadow: 0 0 10px #f43f5e, 0 0 20px #f59e0b;
       position: relative;
-      color: #a6c8ff;
       user-select: none;
-      font-family: 'Share Tech Mono', monospace;
-      text-shadow:
-        0 0 8px #3b82f6,
-        0 0 15px #ef4444;
-    }
-    .header-bar::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 4rem;
-      height: 4rem;
-      background: url('https://cdn-icons-png.flaticon.com/512/1086/1086933.png') no-repeat center/contain;
-      filter: drop-shadow(0 0 4px #3b82f6);
-      transform: translateY(-50%);
-      opacity: 0.3;
-      pointer-events: none;
     }
 
     main {
@@ -65,129 +44,124 @@
     }
 
     section.trial {
-      background: linear-gradient(145deg, #12275f, #7f1d1d);
+      background: linear-gradient(145deg, #3f0e1a, #7c1d1d);
       padding: 1rem 1.5rem;
-      border-left: 6px solid #3b82f6;
+      border-left: 6px solid #f43f5e;
       margin-bottom: 2rem;
       border-radius: 0.5rem;
-      box-shadow:
-        0 0 12px #ef4444;
+      box-shadow: 0 0 12px #f43f5e;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: default;
       user-select: none;
-      color: #dbeafe;
+      color: #fcd34d;
       position: relative;
     }
+
     section.trial:hover {
       transform: scale(1.03);
-      box-shadow:
-        0 0 25px #3b82f6,
-        0 0 40px #ef4444;
+      box-shadow: 0 0 25px #f59e0b, 0 0 40px #db2777;
     }
 
     .trial-title {
       font-size: 1.75rem;
       font-weight: 900;
       margin-bottom: 0.3rem;
-      color: #93c5fd;
-      text-shadow: 0 0 10px #3b82f6;
+      color: #fda4af;
+      text-shadow: 0 0 10px #f43f5e;
     }
+
     .trial-subtitle {
       font-weight: 600;
       margin-bottom: 0.8rem;
       font-style: italic;
-      color: #fca5a5; /* light red */
+      color: #fdba74;
     }
+
     .trial-info p {
       margin-bottom: 0.6rem;
       line-height: 1.5;
-      color: #dbeafe;
-      text-shadow: 0 0 3px #1e293b;
-    }
-    .trial-images {
-      margin-top: 1rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .trial-images img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 0.75rem;
-      box-shadow: 0 0 15px #3b82f6;
-      flex: 1 1 250px;
-      user-select: none;
+      color: #ffe4e6;
+      text-shadow: 0 0 3px #7c2d12;
     }
 
-    /* Sparkles inside trial cards */
+    .trial-info ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+
     .sparkle {
       position: absolute;
       width: 6px;
       height: 6px;
-      background: #3b82f6;
+      background: #f43f5e;
       border-radius: 50%;
-      box-shadow: 0 0 12px #93c5fd;
+      box-shadow: 0 0 12px #fb7185;
       animation: sparkleFloat 5s infinite ease-in-out;
       pointer-events: none;
       opacity: 0;
       mix-blend-mode: screen;
     }
-    .sparkle.red {
-      background: #ef4444;
-      box-shadow: 0 0 15px #fca5a5;
-      animation-delay: 2.5s;
+
+    .sparkle.orange {
+      background: #f59e0b;
+      box-shadow: 0 0 15px #fcd34d;
     }
   </style>
 </head>
 <body>
 
-  <!-- Sparkles floating on the page -->
-  <span class="sparkle" style="top: 15vh; left: 25vw; animation-delay: 0s;"></span>
-  <span class="sparkle red" style="top: 35vh; left: 70vw; animation-delay: 1.5s;"></span>
-  <span class="sparkle" style="top: 60vh; left: 50vw; animation-delay: 3s;"></span>
-  <span class="sparkle red" style="top: 80vh; left: 30vw; animation-delay: 4.5s;"></span>
+  <!-- Sparkles -->
+  <span class="sparkle" style="top: 20vh; left: 30vw; animation-delay: 0s;"></span>
+  <span class="sparkle orange" style="top: 40vh; left: 65vw; animation-delay: 2s;"></span>
+  <span class="sparkle" style="top: 60vh; left: 45vw; animation-delay: 4s;"></span>
+  <span class="sparkle orange" style="top: 80vh; left: 25vw; animation-delay: 3s;"></span>
 
   <header class="header-bar">
-    Mind – Puzzles, Memory
+    Chaos – Unpredictability, Survival
   </header>
 
   <main>
     <section class="trial">
-      <h2 class="trial-title">"Cobra Code"</h2>
-      <div class="trial-subtitle">3-player teams</div>
-      <div class="trial-info">
-        <p>Must solve a sequence of symbols to unlock their cage.</p>
-        <p>One sees the code, one operates the locks, one relays.</p>
-        <p>Communication is key. Mistakes cause time loss.</p>
-      </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:12px; left:40px; animation-delay: 0s;"></span>
-      <span class="sparkle red" style="top:70px; left:180px; animation-delay: 2.5s;"></span>
-      <span class="sparkle" style="top:45px; left:130px; animation-delay: 4s;"></span>
-    </section>
-
-    <section class="trial">
-      <h2 class="trial-title">"Circuit Loop"</h2>
+      <h2 class="trial-title">"Randomizer"</h2>
       <div class="trial-subtitle">Solo challenge</div>
       <div class="trial-info">
-        <p>Activate energy nodes in the correct sequence.</p>
-        <p>Wrong order resets progress. Nearby players can interrupt.</p>
+        <p>Every 30 seconds, a rule changes:</p>
+        <ul>
+          <li>Inverted controls</li>
+          <li>Gravity swap</li>
+          <li>No jumping</li>
+          <li>All players visible on radar</li>
+        </ul>
+        <p>Survive 3 rounds of chaos.</p>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:18px; left:30px; animation-delay: 1s;"></span>
-      <span class="sparkle red" style="top:60px; left:160px; animation-delay: 3.5s;"></span>
+      <span class="sparkle" style="top:12px; left:40px;"></span>
+      <span class="sparkle orange" style="top:70px; left:180px;"></span>
     </section>
 
     <section class="trial">
-      <h2 class="trial-title">"Mirror Maze"</h2>
-      <div class="trial-subtitle">Players run a mirrored course.</div>
+      <h2 class="trial-title">"Snake Eyes"</h2>
+      <div class="trial-subtitle">Pair challenge</div>
       <div class="trial-info">
-        <p>One side can see obstacles, the other is blind.</p>
-        <p>Must talk to a partner to escape.</p>
+        <p>Roll a dice. Complete a challenge based on the number:</p>
+        <ul>
+          <li>1: Solve a puzzle blind</li>
+          <li>6: Outrun a stampede</li>
+          <li>Randomized tasks tied to dice outcomes</li>
+        </ul>
       </div>
-      <div class="trial-images"></div>
-      <span class="sparkle" style="top:10px; left:20px; animation-delay: 0.5s;"></span>
-      <span class="sparkle red" style="top:40px; left:140px; animation-delay: 2s;"></span>
+      <span class="sparkle" style="top:18px; left:30px;"></span>
+      <span class="sparkle orange" style="top:60px; left:160px;"></span>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Spin Room"</h2>
+      <div class="trial-subtitle">Team vs Team</div>
+      <div class="trial-info">
+        <p>Circular spinning platform with platforms, spikes, and projectiles.</p>
+        <p>Direction changes every 10 seconds. Knock out the other team.</p>
+      </div>
+      <span class="sparkle" style="top:10px; left:20px;"></span>
+      <span class="sparkle orange" style="top:40px; left:140px;"></span>
     </section>
   </main>
 
