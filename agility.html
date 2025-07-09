@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-mono">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trial Category - Agility</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0a0a0a;
+    }
+    .header-bar {
+      background-color: #1f2937;
+      border-left: 8px solid #34d399; /* Tailwind green-400 */
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 0 8px #34d399;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    section.trial {
+      background-color: #111827;
+      padding: 1rem 1.5rem;
+      border-left: 6px solid #34d399;
+      margin-bottom: 2rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 8px #34d399;
+    }
+    .trial-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .trial-subtitle {
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      color: #a7f3d0; /* green-200 */
+    }
+    .trial-info p {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .trial-images {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .trial-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px #34d399;
+      flex: 1 1 250px;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <header class="header-bar">
+     Agility – Movement, Reflexes
+  </header>
+
+  <main>
+    <p>
+      Agility trials test speed, timing, and reflexes with challenging obstacle courses and platforming puzzles.
+    </p>
+
+    <section class="trial">
+      <h2 class="trial-title">"Vertigo Steps"</h2>
+      <div class="trial-info">
+        <p>A vertical climb up a collapsing jungle tower.</p>
+        <p>Platforms fall out randomly. Race to the top.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Wall Vine Rush"</h2>
+      <div class="trial-info">
+        <p>Players must scale a wall using vines that break.</p>
+        <p>Vines turn red before breaking. Players must time jumps.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Mag-Leap"</h2>
+      <div class="trial-info">
+        <p>Magnetic platforms that repel/attract depending on your polarity.</p>
+        <p>Switch polarity to cross gaps, trick opponents into falling.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-mono">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNAKEPIT: Multiplayer Survival Game</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0a0a0a;
+    }
+
+    .glitch {
+      text-shadow: 0 0 5px #0ff, 0 0 10px #f0f, 0 0 15px #0ff;
+      animation: glitch 1.2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 0 0 5px #f0f, 0 0 10px #0ff; }
+      25% { text-shadow: 2px -2px 2px #f0f, -2px 2px 2px #0ff; }
+      50% { text-shadow: 0 0 5px #0ff, 0 0 10px #f0f; }
+      75% { text-shadow: -2px 2px 2px #f0f, 2px -2px 2px #0ff; }
+      100% { text-shadow: 0 0 5px #f0f, 0 0 10px #0ff; }
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <!-- Hero Section -->
+  <section class="text-center py-16 bg-gradient-to-b from-black to-gray-900">
+    <h1 class="text-5xl md:text-6xl font-bold glitch">SNAKEPIT</h1>
+    <p class="mt-4 text-xl md:text-2xl text-gray-400">Multiplayer Survival Party Game</p>
+    <p class="mt-2 text-sm text-gray-500">"Survive the jungle. Outsmart the bots. Don’t trust anyone."</p>
+  </section>
+
+  <!-- Game Info -->
+  <section class="px-8 py-12 max-w-4xl mx-auto">
+    <div class="grid grid-cols-2 gap-6 text-sm md:text-base text-gray-300">
+      <div><strong> Genre:</strong> Survival / Party Elimination</div>
+      <div><strong> Players:</strong> 30 per match</div>
+      <div><strong> Platform:</strong> PC + console (maybe)</div>
+      <div><strong> Rating:</strong> Teen (13+)</div>
+    </div>
+    <p class="mt-8 text-lg md:text-xl text-white">
+      You and 29 others are kidnapped by a mysterious person who calls himself "the king Cobra" and dropped in a jungle dome. 
+      Compete in 6 twisted Trials, then battle it out in the deadly final round: <span class="glitch font-bold">The Snakepit</span>.
+    </p>
+  </section>
+
+  <!-- Trial Categories -->
+<section class="px-8 py-12 bg-gray-900">
+  <h2 class="text-3xl mb-6 font-bold glitch">Trial Categories</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-sm text-gray-300">
+    <a href="mind.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Mind – Puzzles, memory</a>
+    <a href="strength.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Strength – Timing, force</a>
+    <a href="agility.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Agility – Movement, reflexes</a>
+    <a href="deception.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Deception – Bluff, detect lies</a>
+    <a href="social.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Social – Alliances & betrayal</a>
+    <a href="chaos.html" class="hover:bg-black p-4 border border-gray-700 rounded block"> Chaos – Total unpredictability</a>
+  </div>
+</section>
+
+
+  <!-- Final Trial -->
+  <section class="px-8 py-12">
+    <h2 class="text-3xl mb-4 font-bold"> Final Showdown: <span class="glitch">The Snakepit</span></h2>
+    <p class="text-gray-300 text-base md:text-lg">
+      The last 8 players face off in a collapsing arena. Tiles vanish, snakes hiss in the shadows, and only one can win. 
+      It’s 1v1 until you’re the last standing... or the last breathing.
+    </p>
+  </section>
+
+  <!-- Rewards -->
+  <section class="px-8 py-12 bg-gray-900">
+    <h2 class="text-3xl mb-6 font-bold glitch">Rewards & Progression</h2>
+    <ul class="list-disc pl-6 space-y-2 text-gray-300">
+      <li><strong>XP:</strong> Level up to unlock new effects & backgrounds</li>
+      <li><strong>Cash:</strong> Buy cosmetics, emotes, and gear</li>
+      <li><strong>Fame:</strong> Access the Season Pass + rare items</li>
+    </ul>
+    <h3 class="mt-6 text-xl font-semibold text-white"> Snakebite Cards:</h3>
+    <ul class="list-disc pl-6 space-y-2 text-gray-400">
+      <li>Venom Blink – Dash through danger</li>
+      <li>Rattle Jammer – Stun players near you</li>
+      <li>Coil Swap – Switch places with another player</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-gray-500 py-6 border-t border-gray-800">
+    Last updated: July 2025 • Created by sella
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-mono">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trial Category - Mind</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0a0a0a;
+    }
+
+    .header-bar {
+      background-color: #1f2937; /* slate-800 */
+      border-left: 8px solid #06b6d4; /* Tailwind cyan-500 */
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 0 8px #06b6d4;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+    }
+
+    section.trial {
+      background-color: #111827; /* slate-900 */
+      padding: 1rem 1.5rem;
+      border-left: 6px solid #06b6d4;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px #06b6d4;
+    }
+
+    .trial-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .trial-subtitle {
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      color: #67e8f9; /* cyan-300 */
+    }
+
+    .trial-info p {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+      color: #d1d5db; /* gray-300 */
+    }
+
+    .trial-images {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .trial-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 8px #06b6d4;
+      flex: 1 1 250px;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <header class="header-bar">
+     Mind – Puzzles, Memory
+  </header>
+
+  <main>
+
+    <section class="trial">
+      <h2 class="trial-title">"Cobra Code"</h2>
+      <div class="trial-subtitle">3-player teams</div>
+      <div class="trial-info">
+        <p>Must solve a sequence of symbols to unlock their cage.</p>
+        <p>One sees the code, one operates the locks, one relays.</p>
+        <p>Communication is key. Mistakes cause time loss.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Circuit Loop"</h2>
+      <div class="trial-subtitle">Solo challenge</div>
+      <div class="trial-info">
+        <p>Activate energy nodes in the correct sequence.</p>
+        <p>Wrong order resets progress. Nearby players can interrupt.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Mirror Maze"</h2>
+      <div class="trial-subtitle">Players run a mirrored course.</div>
+      <div class="trial-info">
+        <p>One side can see obstacles, the other is blind.</p>
+        <p>Must talk to a partner to escape.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>

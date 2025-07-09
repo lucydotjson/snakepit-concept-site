@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-black text-white font-mono">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trial Category - Social</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    body {
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0a0a0a;
+    }
+    .header-bar {
+      background-color: #1f2937;
+      border-left: 8px solid #60a5fa; /* Tailwind blue-400 */
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      box-shadow: 0 0 8px #60a5fa;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    section.trial {
+      background-color: #111827;
+      padding: 1rem 1.5rem;
+      border-left: 6px solid #60a5fa;
+      margin-bottom: 2rem;
+      border-radius: 0.25rem;
+      box-shadow: 0 0 8px #60a5fa;
+    }
+    .trial-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .trial-subtitle {
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      color: #93c5fd; /* blue-300 */
+    }
+    .trial-info p {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .trial-images {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .trial-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 10px #60a5fa;
+      flex: 1 1 250px;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+  <header class="header-bar">
+     Social – Teamwork, Influence
+  </header>
+
+  <main>
+    <p>
+      Social trials demand communication, cooperation, and strategy — but only one moves forward.
+    </p>
+
+    <section class="trial">
+      <h2 class="trial-title">"Linked Fates"</h2>
+      <div class="trial-info">
+        <p>Players are tethered in pairs.</p>
+        <p>Complete a platforming course together.</p>
+        <p>At the end, only one can move on — mutual vote or backstab.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Vote to Save"</h2>
+      <div class="trial-info">
+        <p>Four groups compete in parallel puzzles.</p>
+        <p>Players vote to save one other group. Lowest voted group is eliminated.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+
+    <section class="trial">
+      <h2 class="trial-title">"Fame or Shame"</h2>
+      <div class="trial-info">
+        <p>Players vote on MVPs of a task.</p>
+        <p>Highest and lowest fame both get to the next round. Middle? Eliminated.</p>
+      </div>
+      <div class="trial-images">
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
